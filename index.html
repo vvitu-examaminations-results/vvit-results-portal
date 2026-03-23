@@ -9,78 +9,127 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
-        .top-bar { background: #0f172a; padding: 10px 0; font-size: 13px; }
+        
+        /* Top Bar */
+        .top-bar { background: #0f172a; padding: 8px 0; font-size: 12px; }
         .top-bar .container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
         .top-bar a { color: #94a3b8; text-decoration: none; margin-right: 25px; transition: color 0.3s; font-weight: 500; }
         .top-bar a:hover { color: #f59e0b; }
         .social-icons a { margin-left: 20px; color: #64748b; }
         .social-icons a:hover { color: #f59e0b; }
+        
+        /* Main Header */
         .main-header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
-        .header-container { max-width: 1400px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .logo-area { display: flex; align-items: center; gap: 20px; }
-        .logo-img { width: 70px; height: 70px; object-fit: contain; border-radius: 12px; }
-        .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #0f172a; }
-        .logo-text .tagline { font-size: 12px; color: #64748b; font-weight: 500; }
-        .nav-menu { display: flex; gap: 35px; align-items: center; }
+        .logo-img { width: 65px; height: 65px; object-fit: contain; border-radius: 12px; }
+        .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #0f172a; }
+        .logo-text .tagline { font-size: 11px; color: #64748b; font-weight: 500; }
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
         .nav-menu a { text-decoration: none; color: #334155; font-weight: 600; font-size: 14px; transition: color 0.3s; }
         .nav-menu a:hover, .nav-menu a.active { color: #f59e0b; }
-        .hero-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); padding: 70px 40px; text-align: center; position: relative; overflow: hidden; }
-        .hero-section h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 800; margin-bottom: 20px; color: #ffffff; }
-        .hero-section p { font-size: 18px; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
-        .hero-badge { display: inline-block; background: rgba(245, 158, 11, 0.2); backdrop-filter: blur(10px); padding: 8px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #f59e0b; margin-top: 25px; border: 1px solid rgba(245, 158, 11, 0.3); }
-        .main-container { max-width: 1400px; margin: -40px auto 60px; padding: 0 40px; }
+        
+        /* Hero Section - REDUCED SIZE */
+        .hero-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); padding: 35px 40px; text-align: center; position: relative; overflow: hidden; }
+        .hero-section h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; margin-bottom: 10px; color: #ffffff; }
+        .hero-section p { font-size: 14px; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(245, 158, 11, 0.2); backdrop-filter: blur(10px); padding: 5px 18px; border-radius: 50px; font-size: 12px; font-weight: 600; color: #f59e0b; margin-top: 12px; border: 1px solid rgba(245, 158, 11, 0.3); }
+        
+        /* Main Container */
+        .main-container { max-width: 1400px; margin: -25px auto 50px; padding: 0 40px; }
         .results-portal { background: white; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); overflow: hidden; }
-        .portal-tabs { display: flex; background: #f1f5f9; border-bottom: 2px solid #e2e8f0; padding: 0 30px; gap: 10px; }
-        .tab { padding: 18px 28px; font-weight: 600; color: #475569; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; font-size: 14px; }
+        
+        /* Tabs */
+        .portal-tabs { display: flex; background: #f1f5f9; border-bottom: 2px solid #e2e8f0; padding: 0 30px; gap: 8px; }
+        .tab { padding: 15px 28px; font-weight: 600; color: #475569; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; font-size: 14px; }
         .tab i { margin-right: 8px; }
         .tab.active { color: #f59e0b; border-bottom-color: #f59e0b; background: white; }
-        .tab-content { display: none; padding: 35px; }
+        .tab-content { display: none; padding: 30px; }
         .tab-content.active { display: block; animation: fadeInUp 0.4s ease; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .search-section { background: #f8fafc; border-radius: 20px; padding: 30px; margin-bottom: 35px; border: 1px solid #e2e8f0; }
-        .search-title { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
-        .search-title i { color: #f59e0b; font-size: 24px; }
+        
+        /* Search Section */
+        .search-section { background: #f8fafc; border-radius: 20px; padding: 25px; margin-bottom: 30px; border: 1px solid #e2e8f0; }
+        .search-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .search-title i { color: #f59e0b; font-size: 22px; }
         .search-form { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; }
         .form-group { flex: 1; min-width: 220px; }
-        .form-group label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.8px; }
-        .form-group input, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 14px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s; background: white; }
-        .form-group input:focus, .form-group select:focus { border-color: #f59e0b; outline: none; box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1); }
-        .btn-search { background: #f59e0b; border: none; padding: 14px 36px; border-radius: 14px; font-weight: 700; font-size: 14px; color: white; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group label { display: block; font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.8px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s; background: white; }
+        .form-group input:focus, .form-group select:focus { border-color: #f59e0b; outline: none; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1); }
+        .btn-search { background: #f59e0b; border: none; padding: 12px 32px; border-radius: 12px; font-weight: 700; font-size: 14px; color: white; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-search:hover { background: #d97706; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3); }
+        
+        /* Result Box */
         .result-box { background: white; border: 1px solid #e2e8f0; border-radius: 20px; overflow: hidden; animation: fadeInUp 0.5s ease; }
-        .result-header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 25px 30px; color: white; border-bottom: 3px solid #f59e0b; }
-        .result-header h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .result-header p { font-size: 13px; opacity: 0.8; }
-        .student-details { padding: 25px 30px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .result-header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 20px 25px; color: white; border-bottom: 3px solid #f59e0b; }
+        .result-header h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .result-header p { font-size: 12px; opacity: 0.8; }
+        
+        /* Student Details */
+        .student-details { padding: 20px 25px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
         .detail-item { display: flex; flex-direction: column; }
-        .detail-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-        .detail-value { font-size: 16px; font-weight: 600; color: #0f172a; }
-        .grade-table-wrapper { padding: 0 30px; overflow-x: auto; }
-        .grade-table { width: 100%; border-collapse: collapse; margin: 25px 0; }
-        .grade-table th { background: #f1f5f9; padding: 16px 12px; text-align: left; font-size: 13px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
-        .grade-table td { padding: 16px 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+        .detail-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .detail-value { font-size: 15px; font-weight: 600; color: #0f172a; }
+        
+        /* Grade Table - Removed Int/Ext columns, Increased column sizes */
+        .grade-table-wrapper { padding: 0 25px; overflow-x: auto; }
+        .grade-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .grade-table th { background: #f1f5f9; padding: 16px 15px; text-align: left; font-size: 13px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
+        .grade-table td { padding: 16px 15px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
         .grade-table tr:hover { background: #fef9e6; }
-        .grade-badge { display: inline-block; padding: 5px 14px; border-radius: 30px; font-weight: 700; font-size: 12px; }
+        
+        /* Increased column widths */
+        .grade-table th:nth-child(3), .grade-table td:nth-child(3) { min-width: 280px; } /* Course Name */
+        .grade-table th:nth-child(4), .grade-table td:nth-child(4) { text-align: center; min-width: 100px; } /* Grade */
+        .grade-table th:nth-child(5), .grade-table td:nth-child(5) { text-align: center; min-width: 110px; } /* Grade Point */
+        .grade-table th:nth-child(6), .grade-table td:nth-child(6) { text-align: center; min-width: 90px; } /* Credits */
+        
+        .grade-badge { display: inline-block; padding: 6px 18px; border-radius: 30px; font-weight: 700; font-size: 14px; text-align: center; min-width: 70px; }
         .grade-A { background: #dcfce7; color: #166534; }
         .grade-B { background: #fed7aa; color: #9a3412; }
         .grade-C { background: #fee2e2; color: #991b1b; }
-        .sgpa-card { margin: 25px 30px 30px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 20px; padding: 30px; text-align: center; color: white; }
-        .sgpa-value { font-size: 56px; font-weight: 800; margin: 15px 0; letter-spacing: -2px; }
-        .sgpa-stats { display: flex; justify-content: center; gap: 35px; margin-top: 25px; flex-wrap: wrap; }
-        .stat-item { text-align: center; background: rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 14px; }
-        .stat-label { font-size: 11px; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px; }
-        .stat-value { font-size: 20px; font-weight: 700; margin-top: 5px; }
-        .error-message { background: #fef2f2; border-left: 4px solid #ef4444; padding: 25px; border-radius: 16px; color: #991b1b; margin: 20px; text-align: center; }
-        .footer { background: #0f172a; color: #94a3b8; padding: 60px 40px 30px; margin-top: 60px; }
-        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .footer-section h4 { color: white; font-size: 18px; font-weight: 700; margin-bottom: 20px; position: relative; padding-bottom: 12px; }
-        .footer-section h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 2px; background: #f59e0b; }
-        .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; font-size: 14px; line-height: 1.8; display: block; margin-bottom: 10px; }
+        
+        /* SGPA Card - VVIT Logo Colors (Dark Teal/Blue) */
+        .sgpa-card { margin: 20px 25px 25px; background: linear-gradient(135deg, #0f2f3a 0%, #1a4a5a 100%); border-radius: 20px; padding: 28px; text-align: center; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .sgpa-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px; opacity: 0.9; letter-spacing: 0.5px; }
+        .sgpa-value { font-size: 52px; font-weight: 800; margin: 12px 0; letter-spacing: -2px; }
+        .sgpa-stats { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .stat-item { text-align: center; background: rgba(255,255,255,0.15); padding: 10px 22px; border-radius: 14px; backdrop-filter: blur(5px); }
+        .stat-label { font-size: 10px; text-transform: uppercase; opacity: 0.8; letter-spacing: 1px; }
+        .stat-value { font-size: 20px; font-weight: 700; margin-top: 4px; }
+        
+        /* Error & Welcome Messages */
+        .error-message { background: #fef2f2; border-left: 4px solid #ef4444; padding: 20px; border-radius: 16px; color: #991b1b; margin: 20px; text-align: center; }
+        .welcome-message { text-align: center; padding: 50px 20px; color: #94a3b8; }
+        .welcome-message i { font-size: 48px; margin-bottom: 18px; opacity: 0.5; color: #f59e0b; }
+        .welcome-message p { font-size: 15px; }
+        
+        /* Notice Board */
+        .notice-board { background: white; border-radius: 20px; padding: 25px; border: 1px solid #e2e8f0; margin-top: 0; }
+        .notice-title { display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f59e0b; }
+        .notice-title i { color: #f59e0b; font-size: 20px; }
+        
+        /* Footer */
+        .footer { background: #0f172a; color: #94a3b8; padding: 45px 40px 25px; margin-top: 50px; }
+        .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 35px; }
+        .footer-section h4 { color: white; font-size: 16px; font-weight: 700; margin-bottom: 18px; position: relative; padding-bottom: 10px; }
+        .footer-section h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 45px; height: 2px; background: #f59e0b; }
+        .footer-section p, .footer-section a { color: #94a3b8; text-decoration: none; font-size: 13px; line-height: 1.8; display: block; margin-bottom: 8px; }
         .footer-section a:hover { color: #f59e0b; }
-        .copyright { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid #1e293b; font-size: 13px; }
-        .welcome-message { text-align: center; padding: 60px 20px; color: #94a3b8; }
-        .welcome-message i { font-size: 56px; margin-bottom: 20px; opacity: 0.5; }
-        @media (max-width: 768px) { .header-container, .main-container, .top-bar .container { padding: 15px 20px; } .hero-section h1 { font-size: 32px; } .sgpa-value { font-size: 40px; } .logo-img { width: 50px; height: 50px; } .logo-text h1 { font-size: 18px; } }
+        .copyright { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid #1e293b; font-size: 12px; }
+        
+        @media (max-width: 768px) {
+            .header-container, .main-container, .top-bar .container { padding: 12px 20px; }
+            .hero-section { padding: 25px 20px; }
+            .hero-section h1 { font-size: 24px; }
+            .sgpa-value { font-size: 36px; }
+            .logo-img { width: 45px; height: 45px; }
+            .logo-text h1 { font-size: 16px; }
+            .tab { padding: 12px 16px; font-size: 12px; }
+            .tab-content { padding: 20px; }
+            .grade-table th, .grade-table td { padding: 12px 8px; font-size: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -122,7 +171,7 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - REDUCED SIZE -->
     <div class="hero-section">
         <h1>BTech Results Portal</h1>
         <p>Academic Year 2025-2026 | I Semester (R25 Regulation) Examinations</p>
@@ -166,35 +215,35 @@
 
             <!-- Notifications Tab -->
             <div id="notificationsTab" class="tab-content">
-                <div style="background: white; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0;">
+                <div class="notice-board">
                     <div class="notice-title"><i class="fas fa-bell"></i> Latest University Notifications</div>
                     <ul style="list-style: none;">
-                        <li style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-file-alt" style="color: #f59e0b; margin-right: 12px;"></i> BTech I Semester (R25) Results Published - March 2026 <span style="float: right;">28 March 2026</span></li>
-                        <li style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-calendar-alt" style="color: #f59e0b; margin-right: 12px;"></i> Supplementary Examinations Schedule - April/May 2026 <span style="float: right;">25 March 2026</span></li>
-                        <li style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-print" style="color: #f59e0b; margin-right: 12px;"></i> Online Applications for Revaluation - Last Date: 05 April 2026 <span style="float: right;">22 March 2026</span></li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-file-alt" style="color: #f59e0b; margin-right: 12px;"></i> BTech I Semester (R25) Results Published - March 2026 <span style="float: right;">28 March 2026</span></li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-calendar-alt" style="color: #f59e0b; margin-right: 12px;"></i> Supplementary Examinations Schedule - April/May 2026 <span style="float: right;">25 March 2026</span></li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-print" style="color: #f59e0b; margin-right: 12px;"></i> Online Applications for Revaluation - Last Date: 05 April 2026 <span style="float: right;">22 March 2026</span></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Circulars Tab -->
             <div id="circularsTab" class="tab-content">
-                <div style="background: white; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0;">
+                <div class="notice-board">
                     <div class="notice-title"><i class="fas fa-scroll"></i> Examination Circulars & Guidelines</div>
                     <ul style="list-style: none;">
-                        <li style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-gavel" style="color: #f59e0b; margin-right: 12px;"></i> R25 Regulation - Grading System & Credit Structure <span style="float: right;">10 March 2026</span></li>
-                        <li style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-balance-scale" style="color: #f59e0b; margin-right: 12px;"></i> Examination Malpractice Prevention - Revised Guidelines <span style="float: right;">05 March 2026</span></li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-gavel" style="color: #f59e0b; margin-right: 12px;"></i> R25 Regulation - Grading System & Credit Structure <span style="float: right;">10 March 2026</span></li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-balance-scale" style="color: #f59e0b; margin-right: 12px;"></i> Examination Malpractice Prevention - Revised Guidelines <span style="float: right;">05 March 2026</span></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Verification Tab -->
             <div id="verificationTab" class="tab-content">
-                <div style="background: white; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0;">
+                <div class="notice-board">
                     <div class="notice-title"><i class="fas fa-shield-alt"></i> Student / Academic Verification Services</div>
                     <ul style="list-style: none;">
-                        <li style="padding: 14px 0;"><i class="fas fa-check-circle" style="color: #f59e0b; margin-right: 12px;"></i> Verify Result Authenticity - Blockchain Verified Certificates</li>
-                        <li style="padding: 14px 0;"><i class="fas fa-id-card" style="color: #f59e0b; margin-right: 12px;"></i> Request Transcripts / Migration Certificates</li>
-                        <li style="padding: 14px 0;"><i class="fas fa-comment-dots" style="color: #f59e0b; margin-right: 12px;"></i> Redressal of Grievances Portal - Results & Examinations</li>
+                        <li style="padding: 12px 0;"><i class="fas fa-check-circle" style="color: #f59e0b; margin-right: 12px;"></i> Verify Result Authenticity - Blockchain Verified Certificates</li>
+                        <li style="padding: 12px 0;"><i class="fas fa-id-card" style="color: #f59e0b; margin-right: 12px;"></i> Request Transcripts / Migration Certificates</li>
+                        <li style="padding: 12px 0;"><i class="fas fa-comment-dots" style="color: #f59e0b; margin-right: 12px;"></i> Redressal of Grievances Portal - Results & Examinations</li>
                     </ul>
                 </div>
             </div>
@@ -224,13 +273,13 @@
                 regulation: "R25",
                 academicYear: "2025-2026",
                 subjects: [
-                    { sno: 1, code: "CSEL101", name: "Structured Programming in C", grade: "C", gradePoint: 6, credits: 3, internal: 24, external: 42, total: 66 },
-                    { sno: 2, code: "CSEP101", name: "Spread Sheet Skills", grade: "A", gradePoint: 10, credits: 1, internal: 28, external: 45, total: 73 },
-                    { sno: 3, code: "CSEP102", name: "Design Thinking and Idea Lab", grade: "A", gradePoint: 10, credits: 1, internal: 30, external: 44, total: 74 },
-                    { sno: 4, code: "HSML101", name: "Effective English Communication", grade: "B(-)", gradePoint: 7, credits: 2, internal: 26, external: 48, total: 74 },
-                    { sno: 5, code: "MATL101", name: "Calculus", grade: "C(-)", gradePoint: 5, credits: 4, internal: 22, external: 38, total: 60 },
-                    { sno: 6, code: "MECL101", name: "Engineering Graphics", grade: "B", gradePoint: 8, credits: 3, internal: 27, external: 52, total: 79 },
-                    { sno: 7, code: "PHYL101", name: "Engineering Physics", grade: "C", gradePoint: 6, credits: 4, internal: 25, external: 44, total: 69 }
+                    { sno: 1, code: "CSEL101", name: "Structured Programming in C", grade: "C", gradePoint: 6, credits: 3 },
+                    { sno: 2, code: "CSEP101", name: "Spread Sheet Skills", grade: "A", gradePoint: 10, credits: 1 },
+                    { sno: 3, code: "CSEP102", name: "Design Thinking and Idea Lab", grade: "A", gradePoint: 10, credits: 1 },
+                    { sno: 4, code: "HSML101", name: "Effective English Communication", grade: "B(-)", gradePoint: 7, credits: 2 },
+                    { sno: 5, code: "MATL101", name: "Calculus", grade: "C(-)", gradePoint: 5, credits: 4 },
+                    { sno: 6, code: "MECL101", name: "Engineering Graphics", grade: "B", gradePoint: 8, credits: 3 },
+                    { sno: 7, code: "PHYL101", name: "Engineering Physics", grade: "C", gradePoint: 6, credits: 4 }
                 ],
                 sgpa: 7.44
             }
@@ -246,8 +295,6 @@
             const hallTicket = document.getElementById('hallTicket').value.trim().toUpperCase();
             const container = document.getElementById('resultContainer');
             
-            console.log("Searching for: " + hallTicket); // Debug log
-            
             if (!hallTicket) {
                 container.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Please enter your Hall Ticket Number</div>`;
                 return;
@@ -256,23 +303,20 @@
             const student = studentDatabase[hallTicket];
             
             if (!student) {
-                container.innerHTML = `<div class="error-message"><i class="fas fa-times-circle"></i> <strong>Invalid Hall Ticket</strong><br><br>The Hall Ticket Number "${hallTicket}" is not valid. Please check and try again.<br><br>Demo: 2025DCSBT10681</div>`;
+                container.innerHTML = `<div class="error-message"><i class="fas fa-times-circle"></i> <strong>Invalid Hall Ticket</strong><br><br>The Hall Ticket Number "${hallTicket}" is not valid. Please check and try again.</div>`;
                 return;
             }
             
-            // Build subjects table
+            // Build subjects table - WITHOUT Int/Ext marks
             let subjectsHtml = '';
             student.subjects.forEach(sub => {
                 subjectsHtml += `
                     <tr>
-                        <td>${sub.sno}</td>
-                        <td><strong>${sub.code}</strong></td>
+                        <td style="width: 60px;">${sub.sno}</td>
+                        <td style="width: 100px;"><strong>${sub.code}</strong></td>
                         <td>${sub.name}</td>
-                        <td style="text-align: center;">${sub.internal}</td>
-                        <td style="text-align: center;">${sub.external}</td>
-                        <td style="text-align: center; font-weight: bold;">${sub.total}</td>
                         <td style="text-align: center;"><span class="grade-badge ${getGradeClass(sub.grade)}">${sub.grade}</span></td>
-                        <td style="text-align: center; font-weight: bold;">${sub.gradePoint}</td>
+                        <td style="text-align: center; font-weight: bold; font-size: 15px;">${sub.gradePoint}</td>
                         <td style="text-align: center;">${sub.credits}</td>
                     </tr>
                 `;
@@ -308,7 +352,14 @@
                     <div class="grade-table-wrapper">
                         <table class="grade-table">
                             <thead>
-                                <tr><th>S.No</th><th>Code</th><th>Course Name</th><th>Int.</th><th>Ext.</th><th>Total</th><th>Grade</th><th>GP</th><th>Credits</th></tr>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Code</th>
+                                    <th>Course Name</th>
+                                    <th style="text-align: center;">Grade</th>
+                                    <th style="text-align: center;">Grade Point</th>
+                                    <th style="text-align: center;">Credits</th>
+                                </tr>
                             </thead>
                             <tbody>${subjectsHtml}</tbody>
                         </table>
@@ -321,7 +372,7 @@
                             <div class="stat-item"><span class="stat-label">Grade Points</span><div class="stat-value">${totalPoints}</div></div>
                             <div class="stat-item"><span class="stat-label">Result</span><div class="stat-value">✅ PASS</div></div>
                         </div>
-                        <div style="margin-top: 15px; font-size: 11px;">* SGPA = Σ(GP × Credits) / Σ Credits | R25 Regulation</div>
+                        <div style="margin-top: 12px; font-size: 11px; opacity: 0.8;">* SGPA = Σ(GP × Credits) / Σ Credits | R25 Regulation</div>
                     </div>
                 </div>
             `;
@@ -346,14 +397,13 @@
             }
         });
 
-        // Show welcome message on page load (NO AUTO RESULT)
+        // Show welcome message on page load (NO demo text at bottom)
         window.addEventListener('load', () => {
             const container = document.getElementById('resultContainer');
             container.innerHTML = `
                 <div class="welcome-message">
                     <i class="fas fa-graduation-cap"></i>
                     <p style="font-size: 16px;">Enter your Hall Ticket Number and click "Get Result" to view your official grade sheet</p>
-                    <p style="font-size: 13px; margin-top: 15px; color: #cbd5e1;">Demo: 2025DCSBT10681</p>
                 </div>
             `;
         });
